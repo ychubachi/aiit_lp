@@ -1,0 +1,81 @@
+@charset "utf-8"
+@import "compass"
+
+$orange: #FF6410
+$green:  #19CC3B
+$blue:   #55FFEA
+$yellow: #CCC924
+$brown:  #996D54
+
+/* micro clearfix */
+.cf
+  zoom: 1
+  &:before
+    content: ""
+    display: table
+  &:after
+    content: ""
+    display: table
+    clear: both
+
+/* colors */
+$link-color:         #0388a6
+$link-hover-color:   #009ce0
+$link-focus-color:   false
+$link-active-color:  false
+$link-visited-color: false
+
+$font-color:       #2a2a2a
+$font-family:      "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+
+
+a
+  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
+
+/* 解像度 ＜＝480 の端末用 */
+body
+  font-family: $font-family
+  color: $font-color
+  margin-left: auto
+  margin-right: auto
+  width: 87.36% /* 91% */
+  padding-left: 1.82%
+  padding-right: 1.82%
+  background: white
+header
+  color: $orange
+  background: darken($orange, 45%)
+  text-align: center
+nav
+  color: white
+  background: $green
+  ul
+    padding: 0%
+  li
+    border-style: solid
+    border-width: 1px
+    border-color: black
+article
+  clear: both
+
+/* 解像度 <= 768 の端末用 */
+@media only screen and (min-width: 481px)
+  header
+    float: left
+    width: 75%
+  nav
+
+/* それ以外 */
+@media only screen and (min-width: 769px)
+  .gridContainer
+    width: 88.2%
+    max-width: 1232px
+    padding-left: 0.9%
+    padding-right: 0.9%
+    margin: auto
+  #grid_header, #grid_nav
+    clear: both
+    float: left
+    margin-left: 0
+    width: 100%
+    display: block
