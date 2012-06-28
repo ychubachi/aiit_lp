@@ -1,17 +1,80 @@
 - content_for :head do
   %title AIIT: PR Page
-%header.cf
+%header
   %h1 Advanced Institute of Industrial Technology
-  %p 産業技術大学院大学
-%nav.cf
+  %h2 産業技術大学院大学
+%nav
   %ul
-    %li AIITのご紹介
-    %li About
-    %li Products
+    %li
+      %a{href: '#about'} AIITのご紹介
+    %li
+      %a{href: '#isa'} 情報アーキテクチャ専攻
+    %li
+      %a{href: '#ide'} 創造技術専攻
+    %li
+      %a{href: '#system'} 各種の制度
+    %li
+      %a{href: '#guidance'} 入試説明会
+    %li
 %article
   %section
-    %h2 hogehoge
-    %p こんにちは
+    %h3 AIITのご紹介
+    %p= lorem.paragraph
+    %a{href: '#request'} 資料請求
   %section
-    %h2 ばか
-    %p あほ
+    %h3 情報アーキテクチャ専攻
+    %p= lorem.paragraph
+    %p= lorem.sentence
+  %section
+    %h3 創造技術専攻
+    %p= lorem.paragraph
+    %p= lorem.sentence
+  %section
+    %h3 各種の制度
+    %h4 長期履修制度
+    %p= lorem.paragraph
+    %p= lorem.sentence
+    %h4 科目等履修制度
+    %p= lorem.paragraph
+    %p= lorem.sentence
+  %section
+    %h3 履修証明プログラム
+    %p 短期間で証明がとれるよ。。。
+    %p= lorem.paragraph
+%aside
+  %section
+    %a{name: 'request'} 
+    %h3 資料請求
+    %p aaa
+    %p 住所は郵便物が確実に届くようご記入ください
+    %p 郵便番号・住所
+    %p 入試説明会に参加を希望される方は日程を選択してください。
+    - form_tag '/submit', :class => 'submit-form' do
+      - field_set_tag do
+        %p
+          = label_tag :surname, :class => 'first'
+          = text_field_tag :surname, :value => params[:surname]
+        %p
+          = label_tag :password, :class => 'first'
+          = password_field_tag :password, :value => params[:password]
+        %p
+          = label_tag :strategy
+          = select_tag :strategy, :options => ['delete', 'destroy'], |
+            :selected => 'delete'                                    |
+        %p
+          = check_box_tag :confirm_delete
+      - field_set_tag(:class => 'buttons') do
+        = submit_tag "Remove"
+  %section
+    %h3 入試説明会
+    %p= lorem.paragraph
+    %p 日付・時刻
+  %section
+    %h3 フォーラム・勉強会
+    %p Infotalk、デザインミニ塾
+  %section
+    %h3 図書館
+    %p 図書館の利用の仕方
+    %p= lorem.paragraph
+  %section
+    %img{src: 'images/aiit_logo_300x200.fw.png', width: '200px'}

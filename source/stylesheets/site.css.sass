@@ -1,11 +1,14 @@
 @charset "utf-8"
 @import "compass"
+@import "compass/reset"
+@import "compass/css3/border-radius"
 
 $orange: #FF6410
 $green:  #19CC3B
 $blue:   #55FFEA
 $yellow: #CCC924
-$brown:  #996D54
+// $brown:  #996D54
+$brown:  darken($orange, 45%)
 
 /* micro clearfix */
 .cf
@@ -25,9 +28,8 @@ $link-focus-color:   false
 $link-active-color:  false
 $link-visited-color: false
 
-$font-color:       #2a2a2a
+$font-color:       black
 $font-family:      "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
-
 
 a
   @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
@@ -36,27 +38,58 @@ a
 body
   font-family: $font-family
   color: $font-color
+  background: lighten($orange, 40%)
   margin-left: auto
   margin-right: auto
   width: 87.36% /* 91% */
   padding-left: 1.82%
   padding-right: 1.82%
-  background: white
+
 header
+  padding-top: 1em
+  padding-bottom: 1em
   color: $orange
-  background: darken($orange, 45%)
+  background: $brown
   text-align: center
+  h1
+    font-size: 2em
+    margin-bottom: 0.5em
+  h2
+    font-size: 1.4em
+
 nav
-  color: white
-  background: $green
-  ul
-    padding: 0%
-  li
-    border-style: solid
+  a
+    text-decoration: none
+    display: block
+    padding: 0.4em
+    color: white
+    // color: $brown
+    background: $green
+    border-style: dotted
     border-width: 1px
-    border-color: black
-article
+    border-color: $brown
+
+article, aside
+  h3
+    padding: 0.5em
+    font-size: 1.2em
+    color: $orange
+    width: 70%
+  h4
+    font-size: 1.0em
+    padding-left: 0.5em
+    padding-top: 0.2em
+    padding-bottom: 0.2em
+  p
+    padding: 0.8em
+    background: lighten($blue, 28%)
+    +border-radius(8pt)
+
+.sizecheck
   clear: both
+  padding: 1em
+  background: red
+  text-align: center
 
 /* 解像度 <= 768 の端末用 */
 @media only screen and (min-width: 481px)
@@ -64,18 +97,23 @@ article
     float: left
     width: 75%
   nav
+    float: left
+    width: 25%
+  .sizecheck
+    background: green
 
 /* それ以外 */
 @media only screen and (min-width: 769px)
-  .gridContainer
-    width: 88.2%
-    max-width: 1232px
-    padding-left: 0.9%
-    padding-right: 0.9%
-    margin: auto
-  #grid_header, #grid_nav
-    clear: both
+  article
     float: left
-    margin-left: 0
-    width: 100%
-    display: block
+    width: 58%
+    margin-right: 4%
+  aside
+    float: left
+    width: 38%
+  footer
+    clear: both
+  .sizecheck
+    background: yellow
+
+
