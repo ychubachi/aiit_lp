@@ -67,11 +67,13 @@ header {
     color: #eb6321;
     text-align: center; }
     header #banner h1 {
-      font-size: 1.6em;
+      font-weight: bold;
+      font-size: 1.7em;
       margin-top: 0.5em;
       margin-bottom: 0.7em; }
     header #banner h2 {
-      font-size: 1.4em; }
+      font-weight: bold;
+      font-size: 1.6em; }
   header nav a {
     display: block;
     padding: 0.4em;

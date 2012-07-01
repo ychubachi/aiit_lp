@@ -26,13 +26,11 @@
     <![endif]-->
     <script src='./javascripts/respond.src.js'></script>
     <script src='./javascripts/jquery-1.7.2.min.js'></script>
+    <script src='./ajaxzip2/ajaxzip2.js'></script>
     <script src='./javascripts/script.js'></script>
     <title>AIIT: Landing Page</title>
   </head>
   <body class='index'>
-    <div class='sizecheck'>
-      SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
-    </div>
     <a href='http://aiit.ac.jp/' target='_blank'>Jump to AIIT Website</a>
 <header>
   <div id='banner'>
@@ -254,7 +252,7 @@
             〒
           </th>
           <td>
-            <input id='postal' name='data[Inquiry][zipcode]' placeholder='半角7桁（ハイフン無し）' type='text' />
+            <input id='postal' name='data[Inquiry][zipcode]' onKeyUp="AjaxZip2.zip2addr(this,'data[Inquiry][address1]','data[Inquiry][address1]');" placeholder='半角7桁（ハイフン無し）' type='text' />
           </td>
         </tr>
         <tr>

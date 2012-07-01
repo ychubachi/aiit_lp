@@ -20,10 +20,11 @@
     /[if lt IE 9]
       <script src="./javascript/html5shiv.js"></script>
     %script{src: "./javascripts/respond.src.js"}
-    %script{src: "./javascripts/jquery-1.7.2.min.js"}    
+    %script{src: "./javascripts/jquery-1.7.2.min.js"}
+    %script{src: "./ajaxzip2/ajaxzip2.js"}
     %script{src: "./javascripts/script.js"}
     = yield_content :head
   %body{class: "#{page_classes}"}
-    .sizecheck
+    -# .sizecheck
       SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
     = yield

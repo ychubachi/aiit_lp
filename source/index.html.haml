@@ -198,7 +198,7 @@
           %th
             〒
           %td
-            %input#postal{type: 'text', name: 'data[Inquiry][zipcode]', placeholder: '半角7桁（ハイフン無し）'}
+            %input#postal{type: 'text', name: 'data[Inquiry][zipcode]', placeholder: '半角7桁（ハイフン無し）', onKeyUp: "AjaxZip2.zip2addr(this,'data[Inquiry][address1]','data[Inquiry][address1]');"}
         %tr            
           %th
             住所
