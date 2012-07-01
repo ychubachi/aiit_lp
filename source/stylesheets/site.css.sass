@@ -2,88 +2,126 @@
 @import "compass"
 @import "compass/reset"
 @import "compass/css3/border-radius"
+@import "compass/utilities/general/clearfix"
 
-$orange: #FF6410
-$green:  #19CC3B
-$blue:   #55FFEA
-$yellow: #CCC924
-// $brown:  #996D54
-$brown:  darken($orange, 45%)
-
-/* micro clearfix */
-.cf
-  zoom: 1
-  &:before
-    content: ""
-    display: table
-  &:after
-    content: ""
-    display: table
-    clear: both
+$orange: #EB6321
+$green:  #63CF1D
+$blue:   #1F5D99
+$brown:  darken($orange, 30%)
 
 /* colors */
-$link-color:         #0388a6
-$link-hover-color:   #009ce0
+$link-color:         $blue
+$link-hover-color:   $orange
 $link-focus-color:   false
 $link-active-color:  false
 $link-visited-color: false
 
-$font-color:       black
-$font-family:      "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
-
-a
-  @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
-
-/* 解像度 ＜＝480 の端末用 */
+/* 解像度 < 480 の端末用 (iPod touch 縦) */
 body
-  font-family: $font-family
-  color: $font-color
-  background: lighten($orange, 40%)
+  font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
+  color: black
+  background: pink
   margin-left: auto
   margin-right: auto
-  width: 87.36% /* 91% */
-  padding-left: 1.82%
-  padding-right: 1.82%
+  width: 95%
 
 header
-  padding-top: 1em
-  padding-bottom: 1em
-  color: $orange
   background: $brown
-  text-align: center
-  h1
-    font-size: 2em
-    margin-bottom: 0.5em
-  h2
-    font-size: 1.4em
-
-nav
-  a
-    text-decoration: none
-    display: block
-    padding: 0.4em
-    color: white
-    // color: $brown
-    background: $green
-    border-style: dotted
-    border-width: 1px
-    border-color: $brown
-
-article, aside
-  h3
-    padding: 0.5em
-    font-size: 1.2em
+  @include clearfix
+  #banner
+    padding-top: 1em
+    padding-bottom: 1em
     color: $orange
-    width: 70%
-  h4
-    font-size: 1.0em
-    padding-left: 0.5em
-    padding-top: 0.2em
-    padding-bottom: 0.2em
+    text-align: center
+    h1
+      font-size: 1.7em
+      margin-top: 0.5em
+      margin-bottom: 0.5em
+    h2
+      font-size: 1.4em
+  nav
+    a
+      display: block
+      padding: 0.4em
+      @include link-colors($link-color, $link-hover-color, $link-focus-color, $link-active-color, $link-visited-color)
+      text-decoration: none
+      color: white
+      background: $green
+      border-style: dotted
+      border-width: 1px
+      border-color: $brown
+
+section
+  margin-top: 0.5em
+  margin-bottom: 0.8em
+  padding: 0.5em
+  background: lighten($green, 40%)
+  @include clearfix
+  @include border-radius(10px, 10px)
+  h3
+    font-size: 1.4em
+    color: $orange
   p
-    padding: 0.8em
-    background: lighten($blue, 28%)
-    +border-radius(8pt)
+    margin-top: 0.5em
+    font-size: 1.0em
+    text-indent: 1.0em
+  a.request
+    clear: both
+    float: right
+    margin-top: 0.2em
+    font-size: 0.8em
+  figure
+    margin-top: 0.5em
+    margin-bottom: 0.5em
+    text-align: center
+
+table#time_table
+  margin-top: 0.5em
+  margin-left: auto
+  margin-right: auto
+  font-size: 1.2em
+  th, td
+    border: 1px solid $orange
+    text-align: center
+
+iframe#map
+  padding-left: 10%
+  padding-right: 10%
+  padding-top: 0.5em
+  padding-bottom: 0.5em
+  width: 80%
+  height: 250px
+#access
+  font-size: 0.75em
+
+form
+  margin-top: 0.5em
+  background: $green
+  color: white
+  table
+    width: 100%
+    tr
+      th
+        width: 25%
+        text-align: right
+        padding-top: 0.3em
+        padding-right: 0.3em
+      td
+        padding-top: 0.3em
+        #family_name
+          width: 35%
+        #given_name
+          width: 35%
+        #postal_one
+          width: 25%
+        #postal_space
+          width: 5%
+        #postal_two
+          width: 30%
+        #address
+          width: 90%
+        #email
+          width: 90%
 
 .sizecheck
   clear: both
@@ -91,29 +129,45 @@ article, aside
   background: red
   text-align: center
 
-/* 解像度 <= 768 の端末用 */
-@media only screen and (min-width: 481px)
-  header
+/* 解像度 481-767 の端末用 (iPod touch 横) */
+@media only screen and (min-width: 480px)
+  .sizecheck
+    background: green
+  #banner
     float: left
     width: 75%
   nav
     float: left
     width: 25%
-  .sizecheck
-    background: green
-
-/* それ以外 */
-@media only screen and (min-width: 769px)
   article
-    float: left
-    width: 58%
-    margin-right: 4%
-  aside
-    float: left
-    width: 38%
-  footer
-    clear: both
+    h3
+      clear: both
+  article, aside    
+    figure
+      img
+        float: right
+        padding-left: 0.5em
+        padding-bottom: 0.5em
+
+/* 解像度 768-959 の端末用 (iPad 縦) */
+@media only screen and (min-width: 767px)
   .sizecheck
     background: yellow
+  article
+    float: left
+    width: 59%
+    margin-right: 2%
+  aside
+    float: left
+    width: 39%
+  footer
+    clear: both
+
+/* 解像度 960以上 の端末用 (PC, iPad 横) */
+@media only screen and (min-width: 959px)
+  .sizecheck
+    background: white
+  body
+    width: 960px
 
 

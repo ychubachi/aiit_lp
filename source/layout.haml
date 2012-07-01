@@ -18,13 +18,13 @@
     %link{href: "./stylesheets/normalize.css", media: "screen", rel: "stylesheet", type: "text/css"}
     %link{href: "./stylesheets/site.css", media: "screen", rel: "stylesheet", type: "text/css"}
     / enable Media Queries for IE.
-    %script{srt: "javascript/respond.src.js"}
+    / %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"}
+    / %script{src: "./javascripts/respond.src.js"}
+    / %script{src: "./javascripts/script.js"}
     /[if lt IE 9]
-      <script src="dist/html5shiv.js"></script>
+    /  <script src="dist/html5shiv.js"></script>
     = yield_content :head
   %body{class: "#{page_classes}"}
     .sizecheck
-      red: <= 480, green: <= 768, yellow: 769 and higher
+      SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
     = yield
-  %footer
-    &copy; 2012- AIIT / All rights reserved.

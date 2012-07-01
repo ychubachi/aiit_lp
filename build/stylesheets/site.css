@@ -46,79 +46,131 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block; }
 
-/* micro clearfix */
-.cf {
-  zoom: 1; }
-  .cf:before {
-    content: "";
-    display: table; }
-  .cf:after {
-    content: "";
-    display: table;
-    clear: both; }
-
 /* colors */
-a {
-  color: #0388a6; }
-  a:hover {
-    color: #009ce0; }
-
-/* 解像度 ＜＝480 の端末用 */
+/* 解像度 < 480 の端末用 (iPod touch 縦) */
 body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   color: black;
-  background: #ffe8dc;
+  background: pink;
   margin-left: auto;
   margin-right: auto;
-  width: 87.36%;
-  padding-left: 1.82%;
-  padding-right: 1.82%; }
+  width: 95%; }
 
 header {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  color: #ff6410;
-  background: #2a0f00;
-  text-align: center; }
-  header h1 {
-    font-size: 2em;
-    margin-bottom: 0.5em; }
-  header h2 {
-    font-size: 1.4em; }
+  background: #69290a;
+  overflow: hidden;
+  *zoom: 1; }
+  header #banner {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    color: #eb6321;
+    text-align: center; }
+    header #banner h1 {
+      font-size: 1.7em;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em; }
+    header #banner h2 {
+      font-size: 1.4em; }
+  header nav a {
+    display: block;
+    padding: 0.4em;
+    color: #1f5d99;
+    text-decoration: none;
+    color: white;
+    background: #63cf1d;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #69290a; }
+    header nav a:hover {
+      color: #eb6321; }
 
-nav a {
-  text-decoration: none;
-  display: block;
-  padding: 0.4em;
-  color: white;
-  background: #19cc3b;
-  border-style: dotted;
-  border-width: 1px;
-  border-color: #2a0f00; }
+section {
+  margin-top: 0.5em;
+  margin-bottom: 0.8em;
+  padding: 0.5em;
+  background: #d6f6c2;
+  overflow: hidden;
+  *zoom: 1;
+  -webkit-border-radius: 10px 10px;
+  -moz-border-radius: 10px / 10px;
+  border-radius: 10px / 10px; }
+  section h3 {
+    font-size: 1.4em;
+    color: #eb6321; }
+  section p {
+    margin-top: 0.5em;
+    font-size: 1em;
+    text-indent: 1em; }
+  section a.request {
+    clear: both;
+    float: right;
+    margin-top: 0.2em;
+    font-size: 0.8em; }
+  section figure {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    text-align: center; }
 
-article {
-  clear: both; }
-  article h3 {
-    padding: 0.5em;
-    font-size: 1.2em;
-    color: #ff6410;
-    width: 70%; }
-  article p {
-    padding: 0.8em;
-    background: #e4fffc;
-    -webkit-border-radius: 8pt;
-    -moz-border-radius: 8pt;
-    -ms-border-radius: 8pt;
-    -o-border-radius: 8pt;
-    border-radius: 8pt; }
+table#time_table {
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.2em; }
+  table#time_table th, table#time_table td {
+    border: 1px solid #eb6321;
+    text-align: center; }
+
+iframe#map {
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  width: 80%;
+  height: 250px; }
+
+#access {
+  font-size: 0.75em; }
+
+form {
+  margin-top: 0.5em;
+  background: #63cf1d;
+  color: white; }
+  form table {
+    width: 100%; }
+    form table tr th {
+      width: 25%;
+      text-align: right;
+      padding-top: 0.3em;
+      padding-right: 0.3em; }
+    form table tr td {
+      padding-top: 0.3em; }
+      form table tr td #family_name {
+        width: 35%; }
+      form table tr td #given_name {
+        width: 35%; }
+      form table tr td #postal_one {
+        width: 25%; }
+      form table tr td #postal_space {
+        width: 5%; }
+      form table tr td #postal_two {
+        width: 30%; }
+      form table tr td #address {
+        width: 90%; }
+      form table tr td #email {
+        width: 90%; }
 
 .sizecheck {
+  clear: both;
   padding: 1em;
-  background: red; }
+  background: red;
+  text-align: center; }
 
-/* 解像度 <= 768 の端末用 */
-@media only screen and (min-width: 481px) {
-  header {
+/* 解像度 481-767 の端末用 (iPod touch 横) */
+@media only screen and (min-width: 480px) {
+  .sizecheck {
+    background: green; }
+
+  #banner {
     float: left;
     width: 75%; }
 
@@ -126,23 +178,33 @@ article {
     float: left;
     width: 25%; }
 
-  .sizecheck {
-    background: green; } }
-/* それ以外 */
-@media only screen and (min-width: 769px) {
-  .gridContainer {
-    width: 88.2%;
-    max-width: 1232px;
-    padding-left: 0.9%;
-    padding-right: 0.9%;
-    margin: auto; }
+  article h3 {
+    clear: both; }
 
-  #grid_header, #grid_nav {
-    clear: both;
+  article figure img, aside figure img {
+    float: right;
+    padding-left: 0.5em;
+    padding-bottom: 0.5em; } }
+/* 解像度 768-959 の端末用 (iPad 縦) */
+@media only screen and (min-width: 767px) {
+  .sizecheck {
+    background: yellow; }
+
+  article {
     float: left;
-    margin-left: 0;
-    width: 100%;
-    display: block; }
+    width: 59%;
+    margin-right: 2%; }
 
+  aside {
+    float: left;
+    width: 39%; }
+
+  footer {
+    clear: both; } }
+/* 解像度 960以上 の端末用 (PC, iPad 横) */
+@media only screen and (min-width: 959px) {
   .sizecheck {
-    background: yellow; } }
+    background: white; }
+
+  body {
+    width: 960px; } }
