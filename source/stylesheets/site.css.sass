@@ -4,10 +4,12 @@
 @import "compass/css3/border-radius"
 @import "compass/utilities/general/clearfix"
 
+$text:   #2e2e2e
 $orange: #EB6321
 $green:  #63CF1D
 $blue:   #1F5D99
 $brown:  darken($orange, 30%)
+$green_light: lighten($green, 40%)
 
 /* colors */
 $link-color:         $blue
@@ -19,7 +21,8 @@ $link-visited-color: false
 /* 解像度 < 480 の端末用 (iPod touch 縦) */
 body
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif
-  color: black
+  line-height: 1.5em
+  color: $text
   background: pink
   margin-left: auto
   margin-right: auto
@@ -34,9 +37,10 @@ header
     color: $orange
     text-align: center
     h1
-      font-size: 1.7em
+      font-size: 1.6em
       margin-top: 0.5em
-      margin-bottom: 0.5em
+      margin-bottom: 0.7em
+      
     h2
       font-size: 1.4em
   nav
@@ -52,10 +56,10 @@ header
       border-color: $brown
 
 section
-  margin-top: 0.5em
-  margin-bottom: 0.8em
+  margin-top: 1em
+  margin-bottom: 1em
   padding: 0.5em
-  background: lighten($green, 40%)
+  background: $green_light
   @include clearfix
   @include border-radius(10px, 10px)
   h3
@@ -75,27 +79,33 @@ section
     margin-bottom: 0.5em
     text-align: center
 
-table#time_table
+table#fee, table#time_table
   margin-top: 0.5em
   margin-left: auto
   margin-right: auto
-  font-size: 1.2em
+  font-size: 1.0em
   th, td
-    border: 1px solid $orange
+    border: 2px solid $green
+    padding: 0.3em
     text-align: center
 
-iframe#map
-  padding-left: 10%
-  padding-right: 10%
+#map
   padding-top: 0.5em
   padding-bottom: 0.5em
-  width: 80%
-  height: 250px
+  text-align: center
+  iframe
+    width: 220px
+    height: 300px
+
 #access
   font-size: 0.75em
+  line-height: 1.5em
 
 form
   margin-top: 0.5em
+  margin-bottom: 0.5em
+  padding-top: 0.5em
+  padding-bottom: 0.5em
   background: $green
   color: white
   table
@@ -112,16 +122,26 @@ form
           width: 35%
         #given_name
           width: 35%
-        #postal_one
-          width: 25%
-        #postal_space
-          width: 5%
-        #postal_two
-          width: 30%
-        #address
-          width: 90%
         #email
           width: 90%
+        #postal
+          width: 90%
+        #address
+          width: 90%
+        #comment
+          width: 90%
+        #submit
+          padding-bottom: 0.2em
+          padding-top: 0.3em
+          style: none
+          font-size: 1.2em
+          font-weight: bold
+          color: $green
+          background: white
+          width: 60%
+          /* border: 2px solid lighten(#000, 60%) */
+          border: 3px solid darken($green, 10%)
+          @include border-radius(15px, 15px)
 
 .sizecheck
   clear: both
@@ -148,6 +168,9 @@ form
         float: right
         padding-left: 0.5em
         padding-bottom: 0.5em
+  #map
+    iframe
+      width: 400px
 
 /* 解像度 768-959 の端末用 (iPad 縦) */
 @media only screen and (min-width: 767px)
@@ -160,6 +183,9 @@ form
   aside
     float: left
     width: 39%
+  #map
+    iframe
+      width: 220px
   footer
     clear: both
 
@@ -169,5 +195,8 @@ form
     background: white
   body
     width: 960px
+  #map
+    iframe
+      width: 280px
 
 

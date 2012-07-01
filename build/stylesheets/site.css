@@ -50,7 +50,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /* 解像度 < 480 の端末用 (iPod touch 縦) */
 body {
   font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-  color: black;
+  line-height: 1.5em;
+  color: #2e2e2e;
   background: pink;
   margin-left: auto;
   margin-right: auto;
@@ -66,9 +67,9 @@ header {
     color: #eb6321;
     text-align: center; }
     header #banner h1 {
-      font-size: 1.7em;
+      font-size: 1.6em;
       margin-top: 0.5em;
-      margin-bottom: 0.5em; }
+      margin-bottom: 0.7em; }
     header #banner h2 {
       font-size: 1.4em; }
   header nav a {
@@ -85,8 +86,8 @@ header {
       color: #eb6321; }
 
 section {
-  margin-top: 0.5em;
-  margin-bottom: 0.8em;
+  margin-top: 1em;
+  margin-bottom: 1em;
   padding: 0.5em;
   background: #d6f6c2;
   overflow: hidden;
@@ -111,28 +112,33 @@ section {
     margin-bottom: 0.5em;
     text-align: center; }
 
-table#time_table {
+table#fee, table#time_table {
   margin-top: 0.5em;
   margin-left: auto;
   margin-right: auto;
-  font-size: 1.2em; }
-  table#time_table th, table#time_table td {
-    border: 1px solid #eb6321;
+  font-size: 1em; }
+  table#fee th, table#fee td, table#time_table th, table#time_table td {
+    border: 2px solid #63cf1d;
+    padding: 0.3em;
     text-align: center; }
 
-iframe#map {
-  padding-left: 10%;
-  padding-right: 10%;
+#map {
   padding-top: 0.5em;
   padding-bottom: 0.5em;
-  width: 80%;
-  height: 250px; }
+  text-align: center; }
+  #map iframe {
+    width: 220px;
+    height: 300px; }
 
 #access {
-  font-size: 0.75em; }
+  font-size: 0.75em;
+  line-height: 1.5em; }
 
 form {
   margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
   background: #63cf1d;
   color: white; }
   form table {
@@ -148,16 +154,28 @@ form {
         width: 35%; }
       form table tr td #given_name {
         width: 35%; }
-      form table tr td #postal_one {
-        width: 25%; }
-      form table tr td #postal_space {
-        width: 5%; }
-      form table tr td #postal_two {
-        width: 30%; }
-      form table tr td #address {
-        width: 90%; }
       form table tr td #email {
         width: 90%; }
+      form table tr td #postal {
+        width: 90%; }
+      form table tr td #address {
+        width: 90%; }
+      form table tr td #comment {
+        width: 90%; }
+      form table tr td #submit {
+        padding-bottom: 0.2em;
+        padding-top: 0.3em;
+        style: none;
+        font-size: 1.2em;
+        font-weight: bold;
+        color: #63cf1d;
+        background: white;
+        width: 60%;
+        /* border: 2px solid lighten(#000, 60%) */
+        border: 3px solid #4ea217;
+        -webkit-border-radius: 15px 15px;
+        -moz-border-radius: 15px / 15px;
+        border-radius: 15px / 15px; }
 
 .sizecheck {
   clear: both;
@@ -184,7 +202,10 @@ form {
   article figure img, aside figure img {
     float: right;
     padding-left: 0.5em;
-    padding-bottom: 0.5em; } }
+    padding-bottom: 0.5em; }
+
+  #map iframe {
+    width: 400px; } }
 /* 解像度 768-959 の端末用 (iPad 縦) */
 @media only screen and (min-width: 767px) {
   .sizecheck {
@@ -199,6 +220,9 @@ form {
     float: left;
     width: 39%; }
 
+  #map iframe {
+    width: 220px; }
+
   footer {
     clear: both; } }
 /* 解像度 960以上 の端末用 (PC, iPad 横) */
@@ -207,4 +231,7 @@ form {
     background: white; }
 
   body {
-    width: 960px; } }
+    width: 960px; }
+
+  #map iframe {
+    width: 280px; } }

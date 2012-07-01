@@ -2,33 +2,54 @@
 
   $(document).ready(function() {
     return $("#submit").click(function(event) {
-      var atpos, dotpos, email, family_name, given_name;
+      var address, atpos, comment, dotpos, email, family_name, given_name, numericExpression, postal;
       family_name = $("#family_name").val();
       console.log("family_name=" + family_name);
       if (family_name === null || family_name === "") {
         alert("「姓」をご記入ください。");
+        $("#family_name").focus();
         return false;
       }
       given_name = $("#given_name").val();
       console.log("given_name=" + given_name);
       if (given_name === null || given_name === "") {
         alert("「名」をご記入ください。");
+        $("#given_name").focus();
         return false;
       }
       email = $("#email").val();
       if (email === null || email === "") {
         alert("「E-Mail」をご記入ください。");
+        $("#email").focus();
         return false;
       }
       atpos = email.indexOf("@");
       dotpos = email.lastIndexOf(".");
       if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= email.length) {
         alert("E-Mailアドレスの形式が正しくありません");
+        $("#email").focus();
         return false;
       }
       $("#email2").val(email);
-      alert("Thanks for visiting!");
-      return false;
+      postal = $("#postal").val();
+      numericExpression = /^[0-9]+$/;
+      if (!postal.match(numericExpression) || postal.length !== 7) {
+        alert("郵便番号は数字7桁でご記入ください。");
+        $("#postal").focus();
+        return false;
+      }
+      address = $("#address").val();
+      if (address === null || address === "") {
+        alert("住所をご記入ください。");
+        $("#address").focus();
+        return false;
+      }
+      comment = $("#comment").val();
+      if (comment === null || comment === "") {
+        $("#comment").val("資料請求");
+      }
+      alert("ご登録ありがとうございました。AIIT のウェブページに移動します。");
+      return true;
     });
   });
 

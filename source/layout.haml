@@ -17,12 +17,11 @@
     %meta{name: "viewport", content: "width=device-width, initial-scale=1"}
     %link{href: "./stylesheets/normalize.css", media: "screen", rel: "stylesheet", type: "text/css"}
     %link{href: "./stylesheets/site.css", media: "screen", rel: "stylesheet", type: "text/css"}
-    / enable Media Queries for IE.
-    / %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"}
-    / %script{src: "./javascripts/respond.src.js"}
-    / %script{src: "./javascripts/script.js"}
     /[if lt IE 9]
-    /  <script src="dist/html5shiv.js"></script>
+      <script src="./javascript/html5shiv.js"></script>
+    %script{src: "./javascripts/respond.src.js"}
+    %script{src: "./javascripts/jquery-1.7.2.min.js"}    
+    %script{src: "./javascripts/script.js"}
     = yield_content :head
   %body{class: "#{page_classes}"}
     .sizecheck
