@@ -65,7 +65,11 @@ section
   @include clearfix
   @include border-radius(10px, 10px)
   h3
+    margin-left: 0.2em
+    margin-top: 0.4em
+    margin-bottom: 0.4em
     font-size: 1.4em
+    font-weight: bold
     color: $orange
   p
     margin-top: 0.5em
@@ -92,12 +96,16 @@ table#fee, table#time_table
     text-align: center
 
 #map
-  padding-top: 0.5em
-  padding-bottom: 0.5em
+  margin-left: 2.5em
+  margin-right: 2.5em
+  margin-top: 0.5em
+  margin-bottom: 0.5em
   text-align: center
   iframe
-    width: 220px
+    width: 100%
+    max-width: 100%
     height: 300px
+    max-height: 300px
 
 #access
   font-size: 0.75em
@@ -174,9 +182,6 @@ section#links
         float: right
         padding-left: 0.5em
         padding-bottom: 0.5em
-  #map
-    iframe
-      width: 400px
 
 /* 解像度 768-959 の端末用 (iPad 縦) */
 @media only screen and (min-width: 767px)
@@ -189,11 +194,11 @@ section#links
   aside
     float: left
     width: 39%
-  #map
-    iframe
-      width: 220px
   footer
     clear: both
+  #map
+    margin-left: 1em
+    margin-right: 1em
 
 /* 解像度 960以上 の端末用 (PC, iPad 横) */
 @media only screen and (min-width: 959px)
@@ -201,8 +206,5 @@ section#links
     background: white
   body
     width: 960px
-  #map
-    iframe
-      width: 280px
 
 

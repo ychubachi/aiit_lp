@@ -1,14 +1,25 @@
 $(document).ready ->
+  onChanged = ->
+    console.log window.orientation
+    alert "orientation"
+    if window.orientation is 0 or window.orientation is 180
+      alert "orientation (0 or 180)"
+      $('body').css('zoom', '100%')
+    else if window.orientation is -90 or window.orientation is 90
+      alert "orientation (-90 or 90)"
+      $('body').css('zoom', '100%')
+
+  $(window).bind('orientationchange', onChanged).bind('load', onChanged);
+
+
   $("#submit").click (event) ->
     family_name = $("#family_name").val()
-    console.log "family_name=" + family_name
     if(family_name == null || family_name == "")
       alert("「姓」をご記入ください。")
       $("#family_name").focus()
       return false
 
     given_name = $("#given_name").val()
-    console.log "given_name=" + given_name
     if(given_name == null || given_name == "")
       alert("「名」をご記入ください。")
       $("#given_name").focus()

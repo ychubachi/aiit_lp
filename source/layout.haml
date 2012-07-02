@@ -27,6 +27,6 @@
     %script{src: "./javascripts/script.js"}
     = yield_content :head
   %body{class: "#{page_classes}"}
-    -# .sizecheck
+    .sizecheck
       SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
     = yield
