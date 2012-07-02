@@ -1,17 +1,4 @@
 $(document).ready ->
-  onChanged = ->
-    console.log window.orientation
-    alert "orientation"
-    if window.orientation is 0 or window.orientation is 180
-      alert "orientation (0 or 180)"
-      $('body').css('zoom', '100%')
-    else if window.orientation is -90 or window.orientation is 90
-      alert "orientation (-90 or 90)"
-      $('body').css('zoom', '100%')
-
-  $(window).bind('orientationchange', onChanged).bind('load', onChanged);
-
-
   $("#submit").click (event) ->
     family_name = $("#family_name").val()
     if(family_name == null || family_name == "")
