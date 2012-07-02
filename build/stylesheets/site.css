@@ -179,6 +179,9 @@ form {
         -moz-border-radius: 15px / 15px;
         border-radius: 15px / 15px; }
 
+section#links a {
+  text-decoration: none; }
+
 .sizecheck {
   clear: both;
   padding: 1em;
