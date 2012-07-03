@@ -1,19 +1,7 @@
 (function() {
 
   $(document).ready(function() {
-    var onChanged;
-    onChanged = function() {
-      console.log(window.orientation);
-      alert("orientation");
-      if (window.orientation === 0 || window.orientation === 180) {
-        alert("orientation (0 or 180)");
-        return $('body').css('zoom', '100%');
-      } else if (window.orientation === -90 || window.orientation === 90) {
-        alert("orientation (-90 or 90)");
-        return $('body').css('zoom', '100%');
-      }
-    };
-    $(window).bind('orientationchange', onChanged).bind('load', onChanged);
+    console.log("cookie in this document: " + document.cookie.length);
     return $("#submit").click(function(event) {
       var address, atpos, comment, dotpos, email, family_name, given_name, numericExpression, postal;
       family_name = $("#family_name").val();

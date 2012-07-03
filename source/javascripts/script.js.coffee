@@ -1,4 +1,6 @@
 $(document).ready ->
+  console.log("cookie in this document: " + document.cookie.length)
+
   $("#submit").click (event) ->
     family_name = $("#family_name").val()
     if(family_name == null || family_name == "")

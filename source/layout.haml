@@ -25,8 +25,19 @@
     %script{src: "./javascripts/jquery-1.7.2.min.js"}
     %script{src: "./ajaxzip2/ajaxzip2.js"}
     %script{src: "./javascripts/script.js"}
+    :javascript
+      (function() {
+        var wm = document.createElement('script');
+        wm.type = 'text/javascript';
+        wm.async = true;
+        wm.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//pr.aiit.ac.jp/js.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(wm, s);
+      })();
     = yield_content :head
   %body{class: "#{page_classes}"}
-    .sizecheck
+    -# .sizecheck
       SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
     = yield
+  :javascript
+    console.log('cookie たべたい: ' + document.cookie);

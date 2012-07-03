@@ -30,12 +30,21 @@
     <script src='./javascripts/jquery-1.7.2.min.js'></script>
     <script src='./ajaxzip2/ajaxzip2.js'></script>
     <script src='./javascripts/script.js'></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        (function() {
+          var wm = document.createElement('script');
+          wm.type = 'text/javascript';
+          wm.async = true;
+          wm.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//pr.aiit.ac.jp/js.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(wm, s);
+        })();
+      //]]>
+    </script>
     <title>AIIT: Landing Page</title>
   </head>
   <body class='index'>
-    <div class='sizecheck'>
-      SIZE CHEK [red: < 480, green: < 768, yellow: < 960, white: higher]
-    </div>
     <a href='http://aiit.ac.jp/' target='_blank'>Jump to AIIT Website</a>
 <header>
   <div id='banner'>
@@ -317,4 +326,9 @@
   &copy; 2012- AIIT / All rights reserved.
 </footer>
   </body>
+  <script type='text/javascript'>
+    //<![CDATA[
+      console.log('cookie たべたい: ' + document.cookie);
+    //]]>
+  </script>
 </html>
